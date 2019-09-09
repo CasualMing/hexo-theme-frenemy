@@ -1,0 +1,14 @@
+<div class="friend">
+  <%for (let index = 0; index < theme.friends.length; index++) {%>
+  <%
+    let temp  = theme.friends[index]
+   %>
+  <div class="friend-card">
+    <img src="<%- temp.avatar%>" alt="" srcset="" class="card-cover">
+    <p class="web_title"><%-temp.nickname %></p>
+    <p class="web_description">
+      <%-temp.meta %>
+    </p>
+  </div>
+  <%}%>
+</div>
