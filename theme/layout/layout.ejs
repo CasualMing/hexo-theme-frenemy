@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- partial('_partial/head') %>
+<body>
+  <div class="site-warp">
+    <%- partial('_partial/header') %>
+    <main class="site-main container">
+      <section id="main">
+        <div class="inner row">
+            <%- body %>
+        </div>
+      </section>
+    </main>
+    <%- partial('_partial/footer') %>
+    <div id="return-to-top" class="fixed-tools animated"><i class="fas fa-angle-double-up"></i></div>
+  </div>
+</body>
+
+</html>

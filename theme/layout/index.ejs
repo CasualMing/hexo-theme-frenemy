@@ -1,0 +1,127 @@
+<div>
+    <div class="site-post-list">
+        <div class="post-list">
+            <% for(let index =0; index< page.posts.data.length;index++) { %>
+            <% 
+                            let psg = page.posts.data[index];
+                            let flag = true;
+                        %>
+            <% if (index%2 ==0) {%>
+            <article class="post-card align-right">
+                <%} else {%>
+                <article class="post-card align-left">
+                    <%}%>
+                            <%if (psg.cover) {%>
+                    <% flag = false%>
+                    <a href="<%- url_for(psg.path)%>" class="post-card-image-link">
+                        <div class="post-card-image" style="background-image: url(<%-psg.cover%>)"></div>
+                    </a>
+                    <%}%>
+                            <div class="post-card-content">
+                                <% if(flag){%>
+                    <header class="text-left">
+                        <% }else if (index%2 ==0) {%>
+                        <header class="text-right">
+                            <%} else {%>
+                            <header class="text-left">
+                                <%}%>
+                                    <% if(psg.tags.length > 0) { %>
+                                <ul class="post-tags">
+                                    <% for(let tag of psg.tags.data) { %>
+                                    <li class="post-tag"><a href="<%- url_for(tag.path) %>">#<%- tag.name %></a></li>
+                                    <%}%>
+                                        </ul>
+                                    <%}%>
+                                    <h3 class="post-card-title"><a href="<%- psg.path %>"><%- psg.title%></a></h3>
+                                    <time><%-date(psg.date) %></time>
+                            </header>
+                            <section class="post-card-excerpt">
+                                <% if(psg.description && psg.description.length > 0) { %>
+                                <%- psg.description %>
+                                <% } else { %>
+                                <%- psg.excerpt %>
+                                <% } %>
+                            </section>
+                            <footer class="post-meta">
+                                <ul class="author-list">
+                                    <li class="author-list-item">
+                                        <a href="<%- url_for(psg.path)%>" class="static-avatar">
+                                            <img class="author-profile-image" src="/assets/images/favicon.ico"
+                                                alt="<%-theme.nav_name%>">
+                                            <span><%-theme.nav_name%></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <span class="reading-time"><i class="far fa-clock"></i> 1 分钟阅读</span>
+                            </footer>
+        </div>
+        </article>
+        <%}%>
+                </div>
+            </div>
+            <div class="site-pagination">
+                <nav aria-label="文章分页">
+                    <ul class="pagination">
+                        <% if (page.prev_link) {%>
+        <li class="page-item">
+            <a class="page-link" href="<%- url_for(page.prev_link) %>" aria-label="上一页" target="_blank">
+                <span aria-hidden="true">
+                    <i class="fas fa-angle-left"></i>
+                </span>
+            </a>
+        </li>
+        <%} %>
+        <%if (page.prev) {%>
+        <li class="page-item">
+            <a class="page-link" href="<%-url_for(page.prev_link) %>" target="_blank">
+                <span aria-hidden="true">
+                    <%- page.prev%>
+                </span>
+            </a>
+        </li>
+        <% }else{ %>
+        <li class="page-item">
+            <a class="page-link" href="/" target="_blank">
+                <span aria-hidden="true">
+                    首页
+                </span>
+            </a>
+        </li>
+        <% }%>
+        <li class="page-item active">
+            <a class="page-link" href="<%-url_for(page.current_url) %>" target="_blank">
+                <span aria-hidden="true">
+                    <%- page.current%>
+                </span>
+            </a>
+        </li>
+        <%if (page.next) {%>
+        <li class="page-item">
+            <a class="page-link" href="<%- url_for(page.next_link)%>" target="_blank">
+                <span>
+                    <%-page.next %>
+                </span>
+            </a>
+        </li>
+        <%}else{%>
+        <li class="page-item">
+            <a class="page-link" href="<%- url_for(page.current_url) %>" target="_blank">
+                <span>
+                    尾页
+                </span>
+            </a>
+        </li>
+        <%}%>
+        <% if (page.next_link) {%>
+        <li class="page-item">
+            <a class="page-link" href="<%- url_for(page.next_link)%>" aria-label="下一页" target="_blank">
+                <span aria-hidden="true">
+                    <i class="fas fa-angle-right"></i>
+                </span>
+            </a>
+        </li>
+        <%} %>
+        </ul>
+        </nav>
+    </div>
+</div>
