@@ -977,7 +977,7 @@ a:hover {
 }
 
 [data-theme="dark"] .site-warp .site-main .inner .site-post-list .post-list .post-card .post-card-content .post-card-excerpt p {
-  color: #666;
+  color: #b7b7b7;
 }
 
 [data-theme="dark"] .site-warp .site-main .inner .site-post-list .post-list .post-card .post-card-content .post-meta .author-list .author-list-item .static-avatar .author-profile-image {
@@ -1275,8 +1275,25 @@ a:hover {
   font-weight: normal;
 }
 
-.site-warp .site-main article .post-content p a {
-  border-bottom: 1px solid #000;
+.site-warp .site-main article .post-content a {
+  position: relative;
+  color: #DB221F;
+}
+
+.site-warp .site-main article .post-content a::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  background-color: #029EFF;
+  transition: all .2s ease-in;
+}
+
+.site-warp .site-main article .post-content a:hover::after {
+  width: 100%;
 }
 
 .site-warp .site-main article .post-content h3::before {
@@ -1312,7 +1329,6 @@ a:hover {
 
 [data-theme="dark"] .site-warp .site-main article .post-content p a {
   color: #b7b7b7;
-  border-bottom: 1px solid #b7b7b7;
 }
 
 [data-theme="dark"] .site-warp .site-main article .post-content h3::before {
@@ -1432,6 +1448,29 @@ a:hover {
  */
 .medium-zoom-image--opened {
   z-index: 1;
+}
+
+code {
+  color: #029EFF;
+}
+
+blockquote {
+  border-left: 5px solid #029EFF;
+  padding: 10px 10px 1px 20px;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+[data-theme="dark"] code {
+  background-color: #333;
+}
+
+[data-theme="dark"] blockquote {
+  background-color: #444;
+}
+
+[data-theme="dark"] blockquote p {
+  color: #f5f5f5;
 }
 
 .friend {

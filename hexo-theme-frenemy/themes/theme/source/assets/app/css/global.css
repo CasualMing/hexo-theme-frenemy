@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
   @Author 淮城一只猫
   @Date 2019-08-09
@@ -17,14 +18,15 @@ blockquote {
   background-color: #f5f5f5;
   overflow: hidden;
 }
-[data-theme="dark"] {
-  code{
-    background-color: #333;
-  }
-  blockquote{
-    background-color: #444;
-    p{
-      color: #f5f5f5;
-    }
-  }
+
+[data-theme="dark"] code {
+  background-color: #333;
+}
+
+[data-theme="dark"] blockquote {
+  background-color: #444;
+}
+
+[data-theme="dark"] blockquote p {
+  color: #f5f5f5;
 }

@@ -15,9 +15,28 @@
           font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
           line-height: 1em/1.8;
           font-weight: normal;
+        }
 
-          a {
-            border-bottom: 1px solid #000;
+        a {
+          position: relative;
+          color: #DB221F;
+
+          &::after {
+            content: "";
+            width: 0%;
+            height: 2px;
+            position: absolute;
+            left: 50%;
+            bottom: -4px;
+            transform: translateX(-50%);
+            background-color: #029EFF;
+            transition: all .2s ease-in;
+          }
+
+          &:hover {
+            &::after {
+              width: 100%;
+            }
           }
         }
 
@@ -66,7 +85,6 @@
 
             a {
               color: $dark-font;
-              border-bottom: 1px solid $dark-font;
             }
           }
 
