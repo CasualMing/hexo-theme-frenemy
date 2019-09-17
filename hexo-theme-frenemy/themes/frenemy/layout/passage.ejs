@@ -1,0 +1,22 @@
+<article>
+  <section class="post-content">
+    <%- page.more%>
+  </section>
+  <%- partial('components/imgshow')%>
+</article>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>文章作者： </strong><%-theme.copyright.author%></li>
+  <li class="post-copyright-link">
+    <strong>文章链接：</strong>
+    <a href="<%-page.permalink%>" title="文章标题" target="_blank"><%-page.permalink%></a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong><%-theme.copyright.more%>
+  </li>
+</ul>
+<%- css("/assets/page/page.min.css")%>
+<div class="post-comments">
+  <!-- 这里放置评论框 -->
+  这里放置评论框，用于第三方评论或者博客平台评论。评论框样式可以自己自由发挥定制！
+</div>

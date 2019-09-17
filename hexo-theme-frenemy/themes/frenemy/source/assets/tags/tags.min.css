@@ -1,0 +1,1 @@
+.set a{margin:10px 0px 0px 10px;display:inline-block;position:relative}.set a::after{content:"";position:absolute;width:0%;height:3px;left:0px;bottom:-5px;background-color:#029EFF;transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)}.set a:hover::after{width:100%}

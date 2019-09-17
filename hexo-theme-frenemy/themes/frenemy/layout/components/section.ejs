@@ -1,0 +1,83 @@
+<!--
+    这个是主题头部 页头欢迎描述
+-->
+<%
+let resBg;
+if(is_home()){
+    resBg = theme.homeSction?theme.homeSction:'';
+ } else if(is_post()) {
+    resBg = theme.homeSction?theme.homeSction:'';
+ } else if(page.type === 'tags') {
+    resBg = theme.tagsSction?theme.tagsSction:'';
+ } else if(is_archive()) {
+    resBg = theme.archivesSction ? theme.archivesSction: '';
+ }else if(page.type === 'categories') {
+    resBg = theme.categoriesSction?theme.categoriesSction:'';
+ } else if(page.type === 'about') {
+    resBg = theme.aboutSction?theme.aboutSction:'';
+ } else if(page.type === 'friends') {
+    resBg = theme.friendsSction?theme.friendsSction:'';
+ }
+%>
+<% if (resBg) {%>
+<section class="site-hero responsive-title-img" style="background-image: url(<%-resBg%>);">
+    <%}else {%>
+    <section class="site-hero responsive-title-no-img">
+        <%}%>       
+ <div class="container">
+            <div class="hero-content">
+                <h1 class="site-name"><%- theme.nav_name %></h1>
+        <% if (is_home()) {%>
+        <h2 class="site-description mymotto"><%- theme.motto %></h2>
+        <% } else if (is_post()) {%>
+        <section class="post-full-meta">
+            <% if(page.date) { %>
+            <time class="post-full-meta-date" datetime="2018-10-02"><%-date(page.date) %></time>
+            <%}%>
+          <span class="date-divider"> / </span>
+          <% if(page.categories.length > 0) { %>
+            <span>
+                <a href="<%- url_for(page.categories.data[0].path) %>">
+                    <i class="fa fa-bookmark"></i>
+                    <%- page.categories.data[0].name %>
+                </a>
+            </span>
+            <% } %>
+            <span class="date-divider">/</span>
+            <span class="post-full-meta-visitors">
+                <i class="post-meta-item-text">阅读量 </i>
+                <i class="leancloud-visitors-count">259</i>
+            </span>
+        </section>
+        <% }else{ %>
+        <h2 class="site-description otherMotto"></h2>
+        <% }%>
+        </div>
+        </div>
+    </section>
+    <% if(theme.oneSay.istrue){ %>
+    <script>
+        window.onload = function () {
+            let descr = document.querySelector(".otherMotto");
+            if (!descr) return;
+            // 一言
+            fetch(
+                    `https://api.imjad.cn/hitokoto/?cat=<%=theme.oneSay.cat%>&charset=<%=theme.oneSay.charset%>&length=<%= theme.oneSay.length %>&encode=<%=theme.oneSay.encode%>&fun=<%=theme.oneSay.fun%>&source=<%=theme.oneSay.source%>`
+                )
+                .then(response => {
+                    if (response.ok) {
+                        return response.json()
+                    } else {
+                        descr.innerHTML = "一言请求失败";
+                    }
+                })
+                .then(function (data) {
+                    descr.innerHTML =
+                        `<p>【微语】：${data.hitokoto}——————作者${data.author}</p><span>#${data.catname}</span><span>#${data.source?data.source:随机}</span>`;
+                })
+                .catch(function (err) {
+                    descr.innerText = err;
+                });
+        }
+    </script>
+    <% } %>

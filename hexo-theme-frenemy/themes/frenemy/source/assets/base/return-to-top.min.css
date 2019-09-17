@@ -1,0 +1,1 @@
+#return-to-top{position:fixed;bottom:50px;right:80px;z-index:1;transition:ease-in 250ms ease 0ms;background-color:#000;border-radius:50%;width:4em;height:4em;text-align:center;padding:1em;cursor:pointer}#return-to-top i.fas{font-size:2em;color:#fff}@media (max-width: 900px){#return-to-top{right:0px}}

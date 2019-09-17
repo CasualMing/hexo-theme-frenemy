@@ -1,0 +1,66 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="360-site-verification" content="9977d20a0a57bd7f87a2f268cce4dd9f" />
+  <meta name="author" content="<%- theme.author || config.author ||'程明锐, 1850823766@qq.com' %>" />
+  <%
+    let title = page.title || '';
+
+    if (is_archive()){
+      title = '归档';
+      if (is_month()){
+        title += ': ' + page.year + '/' + page.month;
+      } else if (is_year()){
+        title += ': ' + page.year;
+      }
+    } else if (is_category()){
+      title = '分类: ' + page.category;
+    } else if (is_tag()){
+      title = '标签: ' + page.tag;
+    } else if (page.type === "about") {
+      title = "关于"
+    } else if (page.type === "tags") {
+      title = "标签"
+    } else if (page.type === "categories") {
+      title = "分类"
+    } else if (page.type === "friends") {
+      title = "友链"
+    }
+    page.current && page.current > 1 && (title = `${title} | 第${page.current}页`);
+    title = title ? `${title} | ${config.title}` : config.title;
+  %>
+
+  <title><%= title %></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <% if ((page.tags && page.tags.length) || (page.categories && page.categories.length)) { %>
+  <meta name="keywords"
+    content="<% page.categories.forEach((category) => { %><%= category.name %>,<% }); %><% page.tags.forEach((tag) => { %><%= tag.name %>,<% }); %>" />
+  <% } else { %>
+  <meta name="keywords" content="<%= theme.keywords %>" />
+  <% } %>
+
+  <%
+    let description;
+    const re = /<[^>]+>|\n|"/gim;
+
+    if(is_post()) {
+      description = page.description || page.excerpt.replace(re, '');
+    }
+    description = description || theme.description || config.description;
+  %>
+  <meta name="description" content="<%= description %>">
+
+  <% if (theme.rss){ %>
+  <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
+  <% } %>
+
+  <% if (theme.favicon){ %>
+  <link rel="icon" href="<%- theme.favicon.icon %>">
+  <link rel="apple-touch-icon" href="<%- theme.favicon.touch_icon %>">
+  <% } %>
+
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+  <%- css(["/assets/highlight/highlight.css","/assets/base/base.min.css"]) %>
+</head>

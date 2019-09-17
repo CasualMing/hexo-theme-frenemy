@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/**
+  @Author 淮城一只猫
+  @Date 2019-08-09
+  @Name 黑暗模式
+ */
+[data-theme="dark"] {
+  background-color: #080808;
+  color: #b7b7b7;
+}
+
+.timeline {
+  border-left: 2px dotted #b7b7b7;
+  padding-left: 20px;
+}
+
+.timeline-title {
+  font-size: 26px;
+}
+
+.timeline-subtitle {
+  font-size: 24px;
+  margin: 20px 0px;
+  position: relative;
+}
+
+.timeline-subtitle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #080808;
+}
+
+.timeline-item {
+  font-size: 18px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  margin-left: -5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #b7b7b7;
+}

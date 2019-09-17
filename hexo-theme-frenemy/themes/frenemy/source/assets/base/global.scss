@@ -1,0 +1,89 @@
+/**
+  @Author 淮城一只猫
+  @Date 2019-08-09
+  @Name 全局样式
+ */
+@import "dark-mode";
+
+a {
+  color: #000;
+  text-decoration: none;
+  outline: 0;
+  transition: .5s;
+
+  &:hover {
+    text-decoration: none;
+    color: #000;
+  }
+}
+
+.medium-zoom-image--opened {
+  z-index: 1;
+}
+
+code {
+  color: #029EFF;
+}
+
+blockquote {
+  border-left: 5px solid #029EFF;
+  padding: 10px 10px 1px 20px;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+.inner {
+  padding: 75px;
+  border-radius: 2px;
+  box-shadow: 0 2px 24px 5px rgba(0, 0, 0, .05);
+  margin: 0 auto;
+  width: 100%;
+  background: #fff;
+}
+
+.site-main {
+  margin-top: -100px;
+  margin-bottom: 35px;
+  position: relative;
+  flex-grow: 1;
+  z-index: 1;
+}
+
+[data-theme="dark"] {
+  code {
+    background-color: #333;
+  }
+
+  blockquote {
+    background-color: #444;
+
+    p {
+      color: #f5f5f5;
+    }
+  }
+
+  .inner {
+    background-color: $bg-dark-2;
+    box-shadow: 0 2px 24px 5px $bg-dark-1;
+  }
+}
+.about-par{
+  width: 100%;
+  overflow-x: scroll;
+  img{
+    height: 200px;
+  }
+}
+// 小于 576px
+@media (max-width: 575.98px) {
+  .inner {
+    padding: 25px !important;
+  }
+}
+
+// 小于 768px
+@media (max-width: 767.98px) {
+  .inner {
+    padding: 50px;
+  }
+}
