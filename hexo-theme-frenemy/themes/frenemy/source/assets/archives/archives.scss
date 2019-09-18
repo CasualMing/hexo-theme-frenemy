@@ -30,6 +30,7 @@
 .timeline-item {
     font-size: 18px;
     position: relative;
+
     &::before {
         content: "";
         position: absolute;
@@ -40,7 +41,34 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background-color:$dark-font;
-        // opacity: .5;
+        background-color: $dark-font;
+    }
+    a {
+        margin-left: 10px;
+    }
+
+    &:hover {
+        a {
+            color: #029EFF;
+            margin-left: 10px;
+        }
+        &::before {
+            background-color: #029EFF;
+        }
+    }
+}
+
+[data-theme="dark"] {
+    .timeline-item {
+        a {
+            color: $dark-font;
+            margin-left: 10px;
+        }
+    }
+
+    .timeline-subtitle {
+        &::before {
+            background-color: $bg-dark-2;
+        }
     }
 }

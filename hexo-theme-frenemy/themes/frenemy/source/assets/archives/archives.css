@@ -53,3 +53,25 @@
   border-radius: 50%;
   background-color: #b7b7b7;
 }
+
+.timeline-item a {
+  margin-left: 10px;
+}
+
+.timeline-item:hover a {
+  color: #029EFF;
+  margin-left: 10px;
+}
+
+.timeline-item:hover::before {
+  background-color: #029EFF;
+}
+
+[data-theme="dark"] .timeline-item a {
+  color: #b7b7b7;
+  margin-left: 10px;
+}
+
+[data-theme="dark"] .timeline-subtitle::before {
+  background-color: #252525;
+}

@@ -49,6 +49,43 @@ blockquote {
   z-index: 1;
 }
 
+
+.about-par {
+  width: 100%;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    height: 0px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  img {
+    height: 200px;
+  }
+
+  a {
+    color: #000;
+  }
+}
+
+// 小于 576px
+@media (max-width: 575.98px) {
+  .inner {
+    padding: 25px !important;
+  }
+}
+
+// 小于 768px
+@media (max-width: 767.98px) {
+  .inner {
+    padding: 50px;
+  }
+}
+
 [data-theme="dark"] {
   code {
     background-color: #333;
@@ -66,24 +103,10 @@ blockquote {
     background-color: $bg-dark-2;
     box-shadow: 0 2px 24px 5px $bg-dark-1;
   }
-}
-.about-par{
-  width: 100%;
-  overflow-x: scroll;
-  img{
-    height: 200px;
-  }
-}
-// 小于 576px
-@media (max-width: 575.98px) {
-  .inner {
-    padding: 25px !important;
-  }
-}
 
-// 小于 768px
-@media (max-width: 767.98px) {
-  .inner {
-    padding: 50px;
+  .about-par {
+    a {
+      color: $dark-font;
+    }
   }
 }
