@@ -16,7 +16,24 @@
   </li>
 </ul>
 <%- css("/assets/page/page.min.css")%>
+<script src="//unpkg.com/valine/dist/Valine.min.js" sync></script>
 <div class="post-comments">
   <!-- 这里放置评论框 -->
   这里放置评论框，用于第三方评论或者博客平台评论。评论框样式可以自己自由发挥定制！
 </div>
+<div class="comments">
+
+</div>
+<script>
+  window.onload = function () {
+    new Valine({
+      el: '.comments',
+      notify: true, // 邮件提醒!!!
+      appId: 'qrCN1sshTXv8ta4RCqiKLtHq-gzGzoHsz',
+      appKey: 'CfM5SPn8hsvvnn87z5Tn6t5t',
+      placeholder: '~\(≧▽≦)/~来呀！快活呀！',
+      avatar: 'wavatar',
+      // pageSize: '10' || 10,
+    })
+  }
+</script>
